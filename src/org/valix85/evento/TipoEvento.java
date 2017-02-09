@@ -3,7 +3,8 @@ package org.valix85.evento;
 /**
  * Created by Valerio on 09/02/2017.
  */
-public enum Tipo {
+public enum TipoEvento {
+
     PARTY,
     FESTA_PRIVATA,
     CORSA,
@@ -12,12 +13,5 @@ public enum Tipo {
     CONCERTO,
     FESTA_DI_PAESE,
     CORSA_PODISTICA
-;
-
-private Tipo(){};
-/*
-private Tipo(String s){this.lang = s;} //da questa implementazione dovò generare una variabile interna privata per tenerne traccia
-private String lang;
-*/
 
 }

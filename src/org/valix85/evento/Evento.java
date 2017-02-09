@@ -1,20 +1,22 @@
 package org.valix85.evento;
 
+import org.valix85.anagrafica.Persona;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Valerio on 09/02/2017.
  */
-public class Evento {
+public class Evento<T extends Persona> {
 
-    private String nome;
-    private String indirizzo;
-    private Date inizio;
-    private Date fine;
-    private String categoria;
-
-
-
+    protected String nome;
+    protected String indirizzo;
+    protected Date inizio;
+    protected Date fine;
+    protected TipoEvento categoria;
+    protected List<T> partecipanti = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -48,12 +50,20 @@ public class Evento {
         this.fine = fine;
     }
 
-    public String getCategoria() {
+    public TipoEvento getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(TipoEvento categoria) {
         this.categoria = categoria;
+    }
+
+    public List<T> getPartecipanti() {
+        return partecipanti;
+    }
+
+    public void setPartecipanti(List<T> partecipanti) {
+        this.partecipanti = partecipanti;
     }
 
     public String toString(){

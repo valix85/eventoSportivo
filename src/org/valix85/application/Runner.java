@@ -9,16 +9,8 @@ public final class Runner extends Persona {
 
     private int numero;
 
-    private static int progressivo = 0;
-
-    public Runner(String nome, String cognome){
-        this(nome, cognome, progressivo+1);
-    }
-
-    private Runner(String nome, String cognome, int numero){
+    public Runner(String nome, String cognome) {
         super(nome, cognome);
-        if (numero>progressivo){this.numero = numero;progressivo++;}else{this.numero=++progressivo;}
-        //if (numero>progressivo++){this.numero = numero;}else{this.numero=++progressivo;}
     }
 
     @Override
@@ -31,4 +23,7 @@ public final class Runner extends Persona {
         return ""+this.numero;
     }
 
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 }
