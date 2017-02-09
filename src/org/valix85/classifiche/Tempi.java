@@ -2,9 +2,7 @@ package org.valix85.classifiche;
 
 import org.valix85.anagrafica.Persona;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -20,6 +18,6 @@ public class Tempi {
 
 
     public void ordina() {
-
+        //TODO...
     }
 }
