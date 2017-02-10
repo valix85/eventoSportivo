@@ -20,14 +20,7 @@ public class Tempi {
         tab.add(item);
     }
 
-    public void ordina() {
-        //TODO...
-        //...test git
-    }
-
     public void ordinaClassifica() {
-        //TODO...
-        //...test git
         this.tab.sort(null);
     }
 
