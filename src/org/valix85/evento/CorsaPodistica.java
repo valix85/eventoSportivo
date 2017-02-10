@@ -1,6 +1,7 @@
 package org.valix85.evento;
 
 import org.valix85.application.Runner;
+import org.valix85.classifiche.ItemTempi;
 import org.valix85.classifiche.Tempi;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class CorsaPodistica extends Evento<Runner> {
 
     private List<String> checkpoint = new ArrayList<>();
     private int partecipantiMax;
-    private Tempi<Runner> tabellone;
+    private Tempi tabellone = new Tempi();
 
     /**
      * Una corsa esiste solo se ha un limite ai partecipanti
@@ -28,7 +29,7 @@ public class CorsaPodistica extends Evento<Runner> {
         super();
         this.setCategoria(TipoEvento.CORSA_PODISTICA);
         this.partecipantiMax = partecipantiMax;
-        this.tabellone = new Tempi<>();
+        this.tabellone = new Tempi();
     }
 
     public boolean isATappe(){
@@ -88,17 +89,34 @@ public class CorsaPodistica extends Evento<Runner> {
         if (!this.partecipanti.isEmpty()){
             //per ogni corridore simulo un tempo di corsa (espresso in secondi)
             this.partecipanti.forEach(partecipante -> {
-                int tempo = (int) ((Math.random()*100)+(Math.random()*100)+(Math.random()*100));
-                tabellone.add(partecipante, tempo);
+                System.out.println(partecipante);
+                int tempo = (int) ((Math.random() * 100) + (Math.random() * 100) + (Math.random() * 100));
+                tabellone.add(new ItemTempi(partecipante, (double) tempo));
             });
-        } else{
-            System.err.println("Non ho iscritti");
-        }
+           }
     }
 
     public void stampaClassifica() {
-        tabellone.getClassifica().forEach((tempo, persona) -> {
-            System.out.println(persona.getNumero()+") \t"+persona.getCognome()+" \t"+persona.getNome()+" ha corso in: "+tempo);
+        tabellone.ordinaClassifica();
+
+
+        System.out.println("\n\n\n-------------------------\n\n\n");
+        System.out.println("*** Vincitore ***");
+        Runner rtmp = (Runner) tabellone.primo().getPersona();
+        System.out.println("*** ["+rtmp.getNumero()+"] \t"+rtmp.getNome()+" "+rtmp.getCognome()+" ***");
+
+
+        System.out.println("----------------------------------------------------");
+
+        tabellone.getClassifica().forEach(
+                (item) -> {
+                ItemTempi it = (ItemTempi) item;
+                Runner r = (Runner) it.getPersona();
+
+               // System.out.println(r.getNumero());
+                //Runner rtmp = item.getPersona();
+                System.out.println("    ["+r.getNumero()+"] \t"+r.getCognome()+" \t"+r.getNome()+" ha corso in: "+it.getPunteggio()+" secondi");
         });
+
     }
 }
