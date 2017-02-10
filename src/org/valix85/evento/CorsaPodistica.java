@@ -88,7 +88,7 @@ public class CorsaPodistica extends Evento<Runner> {
         if (!this.partecipanti.isEmpty()){
             //per ogni corridore simulo un tempo di corsa (espresso in secondi)
             this.partecipanti.forEach(partecipante -> {
-                int tempo = (int) (Math.random()*100);
+                int tempo = (int) ((Math.random()*100)+(Math.random()*100)+(Math.random()*100));
                 tabellone.add(partecipante, tempo);
             });
         } else{
