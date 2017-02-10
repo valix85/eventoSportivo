@@ -2,10 +2,14 @@ package org.valix85.classifiche;
 
 import org.valix85.anagrafica.Persona;
 
+import java.util.Comparator;
+
 /**
  * Created by Valerio on 10/02/2017.
  */
 public class ItemTempi<T extends Persona> implements Comparable<ItemTempi>  {
+//Comparable implementa l'ordinamento standard per il sort
+    //Comparator implementa vari modi per ordinare e vanno passati al metodo sort della lista.
 
     private T persona;
     private double punteggio; // caso1 di compareTo()
@@ -31,6 +35,8 @@ public class ItemTempi<T extends Persona> implements Comparable<ItemTempi>  {
         this.punteggio = punteggio;
     }
 
+
+    //comparable
     public int compareTo(ItemTempi item){
         //if (item.getPunteggio()>this.punteggio){return 1;}
         //if (item.getPunteggio()==this.punteggio){return 0;}
@@ -45,6 +51,11 @@ public class ItemTempi<T extends Persona> implements Comparable<ItemTempi>  {
         //Discendente
         //return (int) (item.getPunteggio() - this.punteggio);
     }
+
+
+    //compartor
+    //altra classe, è chi cerca di ordinare che gli passa la regola del comparator, se non la passa userà questa di comparable
+
 
     public String toString(){
         //return "sss";

@@ -100,13 +100,17 @@ public class CorsaPodistica extends Evento<Runner> {
         tabellone.ordinaClassifica();
 
 
+
         System.out.println("\n\n\n-------------------------\n\n\n");
         System.out.println("*** Vincitore ***");
         Runner rtmp = (Runner) tabellone.primo().getPersona();
-        System.out.println("*** ["+rtmp.getNumero()+"] \t"+rtmp.getNome()+" "+rtmp.getCognome()+" ***");
+        System.out.println("*** ["+rtmp.getNumero()+"] \t"+rtmp.getNome()+" "+rtmp.getCognome()+" in: "+tabellone.primo().getPunteggio()+" secondi ***");
 
 
         System.out.println("----------------------------------------------------");
+
+        System.out.println("*** Arrivi al contrario ***");
+        tabellone.ordinaClassificaDecrescente();
 
         tabellone.getClassifica().forEach(
                 (item) -> {
